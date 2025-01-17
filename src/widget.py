@@ -7,7 +7,7 @@ def mask_account_card(type_and_number: str) -> str:
     digit_result = ""
     digit_count = 0
     for el in type_and_number:
-        if el.isalpha():
+        if el.isalpha() or el.isspace():
             text_result += el
         elif el.isdigit():
             digit_result += el
