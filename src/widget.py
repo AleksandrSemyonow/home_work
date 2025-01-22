@@ -22,8 +22,3 @@ def get_date(date_of_operation: str) -> str:
     """ Функция, которая возвращает строку с датой в формате ДД.ММ.ГГГГ"""
 
     return date_of_operation[8:10] + "." + date_of_operation[5:7] + "." + date_of_operation[0:4]
-
-
-if __name__ == "__main__":
-    print(mask_account_card("Visa Platinum 8990922113665229"))
-    print(get_date("2024-03-11Т02:26:18.671407"))
