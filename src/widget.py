@@ -1,24 +1,20 @@
 from src.masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(type_and_number: str) -> str:
-    """ Функция, которая маскирует номер счета или карты"""
-    text_result = ""
-    digit_result = ""
-    digit_count = 0
-    for el in type_and_number:
-        if el.isalpha() or el.isspace():
-            text_result += el
-        elif el.isdigit():
-            digit_result += el
-            digit_count += 1
-    if digit_count <= 16:
-        return f"{text_result} {get_mask_card_number(digit_result)}"
-    else:
-        return f"{text_result} {get_mask_account(digit_result)}"
+def mask_account_card(number_str: str) -> str:
+    """Функция принимает строку и маскирует номер карты или счета"""
+    if len(number_str.split()[-1]) == 16:
+        new_number = get_mask_card_number(number_str.split()[-1])
+        result = f"{number_str[:-16]}{new_number}"
+        return result
+    elif len(number_str.split()[-1]) == 20:
+        new_number = get_mask_account(number_str.split()[-1])
+        result = f"{number_str[:-20]}{new_number}"
+        return result
 
 
-def get_date(date_of_operation: str) -> str:
-    """ Функция, которая возвращает строку с датой в формате ДД.ММ.ГГГГ"""
-
-    return date_of_operation[8:10] + "." + date_of_operation[5:7] + "." + date_of_operation[0:4]
+def get_data(old_data: str) -> str:
+    """Функция принимает строку с датой и форматирует ее"""
+    data_slise = old_data[0:10].split("-")
+    result = ".".join(data_slise[::-1])
+    return result
