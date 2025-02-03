@@ -12,11 +12,12 @@
 * Функция сортировки по дате
 * Функция фильтрации в операциях по счетам
 * Модуль генераторов для обработки массивов транзакций
+* модуль декоратор для логирования  функции, её аргументов, результатов и ошибок
 ## Тестирование проекта
 с помощью pytest
 ## Инструкция по установке
 1.Чтобы скачать репозиторий:
-* git clone https://github.com/AleksandrSemyonow/home_work/tree/feature/homework_10_1
+* git clone https://github.com/AleksandrSemyonow/home_work/tree/feature/homework_11_2
 
 2.Установить не обходимые зависимости
 * pip install -r requirements.txt
