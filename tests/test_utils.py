@@ -39,5 +39,5 @@ class TestUtils(unittest.TestCase):
         mock_get.return_value.json.return_value = {"result": 7500}  # Симулируем ответ API
 
         transaction = {"amount": 100, "currency": "USD"}  # Тестовая транзакция
-        result = convert_to_rub(transaction)
+        result = convert_to_rub()
         self.assertEqual(result, 7500.0)  # Проверяем, что результат конвертации равен 7500

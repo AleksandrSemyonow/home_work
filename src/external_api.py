@@ -6,20 +6,20 @@ import requests
 load_dotenv()  # Загружаем переменные окружения из .env файла
 
 
-def convert_to_rub(operationAmount: dict) -> float:
+def convert_to_rub(transaction: dict) -> float:
     """Конвертирует сумму транзакции в рубли.
 
     Args:
-        operationAmount (dict): Словарь с данными о транзакции, содержащий
+        transaction (dict): Словарь с данными о транзакции, содержащий
                            'amount' и 'currency'.
     Returns:
         float: Сумма транзакции в рублях.
     """
-    amount = operationAmount['amount']  # Получаем сумму тразакции
-    currency = operationAmount['currency']  # Получаем валюту транзакции
+    amount = transaction["operationAmount"]["amount"]  # Получаем сумму тразакции
+    currency = transaction["operationAmount"]["currency"]["code"]  # Получаем валюту транзакции
 
     if currency == 'RUB':
-        return float(amount)  # Если валюта уже в рублях, возвращаем сумму
+        return float(transaction["operationAmount"]["amount"])  # Если валюта уже в рублях, возвращаем сумму
 
     # Формируем URL для API, чтобы конвертировать валюту
     url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}&amount={amount}"
