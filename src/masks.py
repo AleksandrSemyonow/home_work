@@ -10,7 +10,7 @@ file_handler = logging.FileHandler('logs/masks.log', mode='w')
 file_handler.setLevel(logging.DEBUG)
 
 # Форматирование логов
-file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messages)s')
+file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(file_formatter)
 
 # Добавление обработчика к логгеру
