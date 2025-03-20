@@ -1,6 +1,6 @@
-import csv
-import pandas as pd
 import logging
+import pandas as pd
+
 
 logger = logging.getLogger('read_csv_excel')
 file_hendler = logging.FileHandler('logs/read_csv_excel.log', 'w')
