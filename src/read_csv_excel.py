@@ -42,5 +42,6 @@ def read_excel_file(file_path: str) -> list:
         return []
 
 
-print(read_csv_file('data/transactions.csv'))
-print(read_excel_file('data/transactions_excel.xlsx'))
+if __name__ == '__main__':
+    print(read_csv_file('data/transactions.csv'))
+    print(read_excel_file('data/transactions_excel.xlsx'))

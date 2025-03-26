@@ -5,7 +5,7 @@ def filter_by_state(list_dict: list[typing.Dict], value_key: str = "EXECUTED") -
     """Функуия, которая возвращает новый список словарей по указанному ключу"""
     new_list_dict = []
     for every_dict in list_dict:
-        if every_dict["state"] == value_key:
+        if every_dict.get("state", "") == value_key:
             new_list_dict.append(every_dict)
     return new_list_dict
 
